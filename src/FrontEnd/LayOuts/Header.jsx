@@ -129,7 +129,7 @@ const Header = () => {
                                     <li> <a href="html/stories/demo/category.html">Healthy </a> </li>
                                     <li> <a href="html/stories/demo/category.html">Lifestyle</a> </li>
                                     {/* <li> <a href="html/stories/demo/category.html">Blog</a> </li> */}
-                                    <li> <Link><a href="html/stories/demo/category.html">DashBoard</a></Link> </li>
+                                    <li><Link to="/dashboard">DashBoard</Link> </li>
                                 </ul>
                                 {/* <!--Mobile menu--> */}
                                 <ul id="mobile-menu" className="d-block d-lg-none text-muted">

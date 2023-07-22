@@ -1,0 +1,31 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+#root {
+    --textColor: #fff;
+    --bgColor: rgb(26 28 30);
+    --border: 1px solid rgba(255, 255, 255, 0.1);
+    --radious: 10px;
+}
+
+.dashboard__body {
+    /* background-color: #33383c; */
+    background-color: rgb(15 23 42);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header_and_content {
+    flex: 1;
+}
+
+.content {
+    padding-left: 10px;
+    background-color: rgb(30 41 59);
+    margin: 10px;
+    border-radius: var(--radious);
+}
