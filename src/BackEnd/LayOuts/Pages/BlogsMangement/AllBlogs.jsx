@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncFetchAllBlogs } from '../../../../features/blogs/asynReducers/fetchAllBlogs';
-
+import Button from '../../../../components/Button';
+import { generateUniqueID } from '../../../../Helper/helper';
+import { DeleteButtonStyle, EditButtonStyle } from '../../../../Helper/style';
+import { Link } from 'react-router-dom';
 
 const AllBlogs = () => {
 
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogStore.allBlogs);
-  console.log(blogs);
 
   useEffect(() => {
     dispatch(asyncFetchAllBlogs());
@@ -27,12 +29,15 @@ const AllBlogs = () => {
         </thead>
         <tbody>
           {
-            blogs.map(blog => <tr>
+            blogs.map(blog => <tr key={generateUniqueID()}>
               <td><input type="checkbox" name="" id="" /></td>
               <td>{blog._id}</td>
               <td>{blog.title}</td>
               <td>{blog.short_description}</td>
-              <td><i class="fa-solid fa-wrench"></i></td>
+              <td>
+                <Link to={`/dashboard/blogs/edit/${blog._id}`}><Button label="Edit" style={EditButtonStyle} /></Link>
+                <Button label="Delete" style={DeleteButtonStyle} />
+              </td>
             </tr>)
           }
         </tbody>

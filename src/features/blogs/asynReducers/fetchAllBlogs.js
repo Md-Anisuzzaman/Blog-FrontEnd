@@ -4,7 +4,6 @@ import axiosInstance from "../../../utils/axios";
 
 export const getAllBlogsApi = async () => {
     const res = await axiosInstance.get('/api/fetchblogs');
-    console.log(res);
     return res.data;
 }
 
@@ -13,7 +12,7 @@ export const asyncFetchAllBlogs = createAsyncThunk('blogs/fetchBlogs', async () 
         const blogs = await getAllBlogsApi();
         return blogs;
     } catch (error) {
-        console.log("kno error --> ", error.message);
+        console.log("asyncFetchAllBlogs kno error --> ", error.message);
     }
 });
 

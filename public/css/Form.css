@@ -1,0 +1,9 @@
+.form-control{
+    background: none;
+    border-radius: 10px;
+}
+
+.form_body{
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+}

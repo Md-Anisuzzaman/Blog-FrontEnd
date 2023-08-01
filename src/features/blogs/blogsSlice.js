@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import fetchAllBlogs from './asynReducers/fetchAllBlogs';
+import fetchBlog from './asynReducers/fetchBlog';
 
 const blogsSlice = createSlice({
     name: 'blogs',
     initialState: {
         allBlogs: [],
-        blogs: {},
+        blog: {},
         isLoading: false,
         isError: false,
         error: "",
@@ -13,6 +14,7 @@ const blogsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {   
         fetchAllBlogs(builder)
+        fetchBlog(builder)
     },
 
 });

@@ -10,7 +10,9 @@ const settingSlice = createSlice({
     },
     reducers: {
         setBlogsToggle: (state, action) => {
-            state.isBlogsMangament = action.payload
+            console.log(event.target.parentNode.childNodes[1].classList.toggle("d-none"));
+
+            state.isBlogsMangament = action.payload.isBlogsMangament
         },
         setUsersToggle: (state, action) => {
             state.isUsersMangament = action.payload
@@ -18,6 +20,9 @@ const settingSlice = createSlice({
         setSidebarToggle: (state, action) => {
             state.isSidebarOpen = action.payload
         },
+        setMenuToggle: (state, action) => {
+            event.target.parentNode.childNodes[1].classList.toggle("d-none");
+        }
 
     },
     extraReducers: (builder) => {
@@ -25,5 +30,5 @@ const settingSlice = createSlice({
 
 });
 
-export const { setBlogsToggle, setUsersToggle, setSidebarToggle } = settingSlice.actions;
+export const { setBlogsToggle, setMenuToggle, setUsersToggle, setSidebarToggle } = settingSlice.actions;
 export default settingSlice;

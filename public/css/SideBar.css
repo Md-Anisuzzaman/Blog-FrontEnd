@@ -35,7 +35,9 @@
 .list__parent span i {
     padding-right: 8px;
 }
-
+.d_none{
+    display: none;
+}
 .sidebar ul {
     /* text-align: left; */
     padding: 0px 0px 0px 25px;
