@@ -1,48 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Custom Multiple Select</title>
+  <style>
+    /* Basic styling for the custom select container */
+    .custom-select {
+      position: relative;
+      display: inline-block;
+      width: 200px;
+    }
+
+    /* Style for the select input */
+    .custom-select select {
+      display: none;
+    }
+
+    /* Style for the selected items container */
+    .selected-items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 5px;
+      min-height: 30px;
+    }
+
+    /* Style for the selected item */
+    .selected-item {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      padding: 3px;
+      margin: 2px;
+    }
+
+    /* Style for the close icon */
+    .close-icon {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    /* Style for the dropdown icon button */
+    .dropdown-icon {
+      padding: 5px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
-<style>
-    .table__border {
-        border-collapse: collapse
-    }
-    .table__border th,
-    .table__border td {
-        border: 1px solid black;
-    }
-</style>
-
 <body>
+  <div class="custom-select">
+    <div class="selected-items" id="selectedItems"></div>
+    <select id="selectOptions" multiple>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+      <option value="option4">Option 4</option>
+    </select>
+    <button class="dropdown-icon" id="showDropdown">&#9660;</button>
+  </div>
+  
+  <script>
+    const selectedItemsContainer = document.getElementById('selectedItems');
+    const selectOptions = document.getElementById('selectOptions');
+    const showDropdownButton = document.getElementById('showDropdown');
 
+    showDropdownButton.addEventListener('click', () => {
+      selectOptions.style.display = selectOptions.style.display === 'none' ? 'block' : 'none';
+    });
 
+    selectOptions.addEventListener('change', () => {
+      updateSelectedItems();
+    });
 
-    <table class="table__border">
-        <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
-        </tr>
-        <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-        </tr>
-        <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Mexico</td>
-        </tr>
-    </table>
-
-    <ul>my ul
-        <li>juel</li>
-    </ul>
-
+    function updateSelectedItems() {
+      selectedItemsContainer.innerHTML = '';
+      Array.from(selectOptions.selectedOptions).forEach(option => {
+        const selectedItem = document.createElement('div');
+        selectedItem.className = 'selected-item';
+        selectedItem.textContent = option.textContent;
+        const closeIcon = document.createElement('span');
+        closeIcon.className = 'close-icon';
+        closeIcon.innerHTML = '&times;';
+        closeIcon.addEventListener('click', () => {
+          option.selected = false;
+          updateSelectedItems();
+        });
+        selectedItem.appendChild(closeIcon);
+        selectedItemsContainer.appendChild(selectedItem);
+      });
+    }
+  </script>
 </body>
-
 </html>

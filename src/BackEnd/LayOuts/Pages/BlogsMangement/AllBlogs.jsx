@@ -17,6 +17,7 @@ const AllBlogs = () => {
 
   return (
     <div>
+    <h3 className='text-center'>All Blogs</h3>
       <table>
         <thead>
           <tr>
@@ -29,13 +30,13 @@ const AllBlogs = () => {
         </thead>
         <tbody>
           {
-            blogs.map(blog => <tr key={generateUniqueID()}>
+            blogs?.map(blog => <tr key={generateUniqueID()}>
               <td><input type="checkbox" name="" id="" /></td>
               <td>{blog._id}</td>
               <td>{blog.title}</td>
               <td>{blog.short_description}</td>
               <td>
-                <Link to={`/dashboard/blogs/edit/${blog._id}`}><Button label="Edit" style={EditButtonStyle} /></Link>
+                <Link to={`/dashboard/blogs/blogedit/${blog._id}`}><Button label="Edit" style={EditButtonStyle} /></Link>
                 <Button label="Delete" style={DeleteButtonStyle} />
               </td>
             </tr>)

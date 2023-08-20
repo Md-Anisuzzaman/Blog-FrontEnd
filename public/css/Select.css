@@ -1,0 +1,46 @@
+
+/* Basic styling for the custom select container */
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+  }
+  
+  /* Style for the select input */
+  .custom-select select {
+    display: none;
+  }
+  
+  /* Style for the selected items container */
+  .selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    min-height: 30px;
+  }
+  
+  /* Style for the selected item */
+  .selected-item {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px;
+  }
+  
+  /* Style for the close icon */
+  .close-icon {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style for the dropdown icon button */
+  .dropdown-icon {
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }

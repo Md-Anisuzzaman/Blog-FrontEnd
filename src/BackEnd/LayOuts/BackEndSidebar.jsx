@@ -21,7 +21,17 @@ const BackEndSidebar = () => {
                         <ul className='d-none'>
                             <li><Link to="/dashboard/blogs/allblogs"><i className="fa-solid fa-cube"></i>All Blogs</Link></li>
                             <li><Link to="/dashboard/blogs/blogscreate"><i className="fa-solid fa-cube"></i>Create Blogs</Link></li>
-                            <li><Link to="/dashboard/blogs/edit"><i className="fa-solid fa-cube"></i>Edit Blogs</Link></li>
+                        </ul>
+                    // )
+                }
+            </div>
+            <div className="list__parent">
+                <span onClick={() => dispatch(setMenuToggle())}><i className="fa-brands fa-blogger"></i>Category Management</span>
+                {
+                    // isBlogsMangament && (
+                        <ul className='d-none'>
+                            <li><Link to="/dashboard/categories/allcategory"><i className="fa-solid fa-cube"></i>All Category</Link></li>
+                            <li><Link to="/dashboard/categories/categorycreate"><i className="fa-solid fa-cube"></i>Create Category</Link></li>
                         </ul>
                     // )
                 }
@@ -34,7 +44,7 @@ const BackEndSidebar = () => {
                         <ul>
                             <li><Link to="/dashboard/users/allusers"><i className="fa-regular fa-circle-stop"></i>All Users</Link></li>
                             <li><Link to="/dashboard/users/usercreate"><i className="fa-regular fa-circle-stop"> </i>Create User</Link></li>
-                            <li><Link to="/dashboard/users/edit"><i className="fa-regular fa-circle-stop"></i> Edit User</Link></li>
+                            <li><Link to="/dashboard/users/useredit"><i className="fa-regular fa-circle-stop"></i> Edit User</Link></li>
                         </ul>
                     )
                 }
