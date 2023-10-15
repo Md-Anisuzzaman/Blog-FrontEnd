@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
+import createUser from './asynReducers/createUser';
+import fetchAllUsers from './asynReducers/fetchAllUsers';
 
 
 const userSlice = createSlice({
     name: 'userStore',
     initialState: {
-        users: [],
+        allUsers: [],
         user: {},
         userInfo: {},
         formErrors: {},
@@ -22,7 +24,8 @@ const userSlice = createSlice({
     },
     reducers: {},
     extraReducers: (builder) => {
-        
+        createUser(builder)
+        fetchAllUsers(builder)
     },
 
 });

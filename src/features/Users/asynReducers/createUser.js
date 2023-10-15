@@ -3,6 +3,8 @@ import axiosInstance from "../../../utils/axios";
 
 
 export const createUserApi = async (formData) => {
+    const jwt = Cookies.get('jwt');
+    formData.jwt = jwt;
     const res = await axiosInstance.post('/api/user/resistration', formData)
     return res.data;
 }
